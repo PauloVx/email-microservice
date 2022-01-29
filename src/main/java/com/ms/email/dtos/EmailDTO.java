@@ -24,12 +24,5 @@ public class EmailDTO {
 
     @NotBlank
     private String text;
-
-    public EmailDTO(Email email) {
-        this.ownerRef = email.getOwnerRef();
-        this.emailFrom = email.getEmailFrom();
-        this.emailTo = email.getEmailTo();
-        this.subject = email.getSubject();
-        this.text = email.getText();
-    }
+    
 }
