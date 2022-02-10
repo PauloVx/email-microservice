@@ -27,7 +27,7 @@ public class EmailController {
             EmailDTO emailDTO
     ) {
         var email = new Email();
-        
+
         BeanUtils.copyProperties(emailDTO, email);
         this.emailService.sendEmail(email);
         return new ResponseEntity<Email>(email, HttpStatus.CREATED);
