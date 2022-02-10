@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @RestController
 public class EmailController {
@@ -25,7 +26,8 @@ public class EmailController {
             @Valid
             EmailDTO emailDTO
     ) {
-        Email email = new Email();
+        var email = new Email();
+        
         BeanUtils.copyProperties(emailDTO, email);
         this.emailService.sendEmail(email);
         return new ResponseEntity<Email>(email, HttpStatus.CREATED);
